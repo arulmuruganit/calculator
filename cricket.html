@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        Cricket calculators
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      th, td {
+    padding: 10px;
+  }
+  h1{
+    font-family: 'Times New Roman', Times, serif;
+  }
+  td{
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  </style>
+    <body>
+        <div class="container-fluid"style="background-color: #1C0C5B;">
+            <header style="text-align: center; font-size:25px;color: #000;padding: 10px; color:azure">
+             CRICKET CALCULATOR
+            </header>
+        </div>
+        <div class="container" style="margin-top: 10%; margin-left: 7%; padding-left: 15%; background-color: #C996CC;">
+          <table>
+            <tr style="text-align: center;">
+              <th><h1> Batsman strike rate</h1></th>
+            </tr>
+            <tr>
+              <tc>
+                <td><label>Run scored</label></td>
+              </tc>
+              <tc><td><input type="number" id="sr1"></td></tc>
+            </tr>
+            <tr>
+              <tc>
+                <td><label>Ball faced</label></td>
+              </tc>
+              <tc><td><input type="number" id="sr2"></td></tc>
+            </tr>
+            <tr>
+              <tc>
+              <td><button type="button" onclick="my()">calculate</button></td>
+              </tc>
+              <tc><td><p id="sr"></p></td></tc>
+            </tr>
+          </table>
+          <table style="margin-top: 10%;">
+            <tr style="text-align: center;">
+              <th><h1> Team run rate</h1></th>
+            </tr>
+            <tr>
+              <tc>
+                <td><label>Run scored</label></td>
+              </tc>
+              <tc><td><input type="number" id="rr1"></td></tc>
+            </tr>
+            <tr>
+              <tc>
+                <td><label>Over faced</label></td>
+              </tc>
+              <tc><td><input type="number" id="rr2"></td></tc>
+            </tr>
+            <tr>
+              <tc>
+              <td><button type="button" onclick="my1()">calculate</button></td>
+              </tc>
+              <tc><td><p id="rr"></p></td></tc>
+            </tr>
+          </table>
+          <table style="margin-top: 10%;">
+            <tr style="text-align: center;">
+              <th><h1>Batsman Average</h1></th>
+            </tr>
+            <tr>
+              <tc>
+                <td><label>Run scored</label></td>
+              </tc>
+              <tc><td><input type="number" id=rs1></td></tc>
+            </tr>
+            <tr>
+              <tc>
+                <td><label>Total no of innings out</label></td>
+              </tc>
+              <tc><td><input type="number" id="rs2"></td></tc>
+            </tr>
+            <tr>
+              <tc>
+              <td><button type="button" onclick="my2()">calculate</button></td>
+              </tc>
+              <tc><td><p id="ba"></p></td></tc>
+            </tr>
+          </table>
+          <table style="margin-top: 10%;">
+            <tr style="text-align: center;">
+              <th><h1> Bowlers Economy</h1></th>
+            </tr>
+            <tr>
+              <tc>
+                <td><label>Run given</label></td>
+              </tc>
+              <tc><td><input type="number" id="be1"></td></tc>
+            </tr>
+            <tr>
+              <tc>
+                <td><label>Overs bowled</label></td>
+              </tc>
+              <tc><td><input type="number" id="be2"></td></tc>
+            </tr>
+            <tr>
+              <tc>
+              <td><button type="button" onclick="my3()">calculate</button></td>
+              </tc>
+              <tc><td><p id="be"></p></td></tc>
+            </tr>
+          </table>
+        </div>
+        <script>
+          function my(){
+          var sr1=document.getElementById("sr1").value;
+          var sr2=document.getElementById("sr2").value;
+          var out=(sr1/sr2)*100;
+          if(out>0)
+          {
+          document.getElementById("sr").innerHTML =(+out)+'%';
+          }
+          else
+          {
+            document.getElementById("sr").innerHTML ='NaN';
+          }
+          }
+          function my1(){
+          var sr1=document.getElementById("rr1").value;
+          var sr2=document.getElementById("rr2").value;
+          var out=sr1/(sr2);
+          if(out>0)
+          {
+          document.getElementById("rr").innerHTML =(+out);
+          }
+          else
+          {
+            document.getElementById("rr").innerHTML ='NaN';
+          }
+          }
+          function my2(){
+          var sr1=document.getElementById("rs1").value;
+          var sr2=document.getElementById("rs2").value;
+          var out=sr1/sr2;
+          if(out>0)
+          {
+          document.getElementById("ba").innerHTML =(+out);
+          }
+          else
+          {
+            //document.getElementById("ba").innerHTML ='NaN';
+          }
+          }
+          function my3(){
+          var sr1=document.getElementById("be1").value;
+          var sr2=document.getElementById("be2").value;
+          var out=(sr1/sr2);
+          if(out>0)
+          {
+          document.getElementById("be").innerHTML =(+out);
+          }
+          else
+          {
+            document.getElementById("be").innerHTML ='NaN';
+          }
+          }
+
+        </script>
+     
+    </body>
+</html>
